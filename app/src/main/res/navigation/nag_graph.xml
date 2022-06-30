@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nag_graph"
+    app:startDestination="@id/citesFragment">
+
+    <fragment
+        android:id="@+id/leageList"
+        android:name="com.idbs.weather.ui.league.LeageList"
+        android:label="@string/leagues_list"
+        tools:layout="@layout/fragment_leage_list" >
+        <action
+            android:id="@+id/action_leageList_to_teamsList"
+            app:destination="@id/teamsList" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamsList"
+        android:name="com.idbs.weather.ui.teams.TeamsList"
+        android:label="@string/teams"
+        tools:layout="@layout/fragment_teams_list" >
+        <action
+            android:id="@+id/action_teamsList_to_teamDetails"
+            app:destination="@id/teamDetails" />
+        <argument
+            android:name="league_id"
+            app:argType="string"
+             />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetails"
+        android:name="com.idbs.weather.ui.team_details.TeamDetails"
+        android:label="{title}"
+        tools:layout="@layout/fragment_team_details" >
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="Team" />
+    </fragment>
+    <fragment
+        android:id="@+id/citesFragment"
+        android:name="com.idbs.weather.ui.cites.CitesFragment"
+        android:label="cites_fragment"
+        tools:layout="@layout/cites_fragment" />
+</navigation>

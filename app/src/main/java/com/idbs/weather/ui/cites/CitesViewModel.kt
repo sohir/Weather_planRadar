@@ -43,7 +43,6 @@ class CitesViewModel @Inject constructor(val application: Application, val repo:
             try {
                 _citesLoadingState.emit(NetworkState.LOADING)
                 repo.getCities().collect{
-                    Log.v("data"," vm: ${it}")
                     _citesLoadingState.emit(NetworkState.getLoaded(it))
                 }
             }

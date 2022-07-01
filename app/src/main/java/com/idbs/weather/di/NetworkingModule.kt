@@ -1,7 +1,6 @@
 package com.idbs.weather.di
 
 import com.idbs.weather.BuildConfig
-import com.idbs.weather.network.ApiServices
 import com.idbs.weather.network.WeatherApiServices
 import com.idbs.weather.utilit.UrlsConstants.BASE_URL
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -62,11 +61,7 @@ object NetworkingModule {
             .client(okHttpClient)
             .build()
     }
-    @Provides
-    @Singleton
-    fun provideApiService(retrofit: Retrofit): ApiServices {
-        return retrofit.create(ApiServices::class.java)
-    }
+
     @Provides
     @Singleton
     fun provideWeathweApiService(retrofit: Retrofit): WeatherApiServices {

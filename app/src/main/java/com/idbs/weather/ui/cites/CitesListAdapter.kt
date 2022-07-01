@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.idbs.weather.R
 import com.idbs.weather.databinding.CityListItemBinding
-import com.idbs.weather.databinding.LeagueListItemBinding
 
 
 class CitesListAdapter (private val actionsInterface:ComponentActionsClickListener ?=null) : RecyclerView.Adapter<CitesListAdapter.ViewHolder>() {

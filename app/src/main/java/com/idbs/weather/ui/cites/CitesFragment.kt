@@ -78,7 +78,6 @@ private fun observeCities(){
                  NetworkState.Status.SUCCESS -> {
                     ProgressLoading.dismiss()
                      if (it.data is List<*>){
-                         Log.v("data"," is ${it.data}")
                          it.data.let {list ->
                              if (list.isEmpty()){
                                  binding.recycler.visibility = View.GONE
@@ -127,15 +126,11 @@ private fun observeCities(){
 
     }
     override fun onItemClicked(v: View, item: CitiesModel.Cities) {
-        Toast.makeText(requireContext(),item.name,Toast.LENGTH_SHORT).show()
-        Log.v("click"," item clicked ${item}")
         findNavController().navigate(CitesFragmentDirections.actionCitesFragmentToWeatherDetailsFragment(item.name))
-
     }
 
     override fun onInfoClicked(v: View, item: CitiesModel.Cities) {
-        Log.v("click"," info clicked")
-        Toast.makeText(requireContext(),"id: ${item.id}",Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(),"under construction...",Toast.LENGTH_SHORT).show()
     }
     fun showDialog() {
         insertCityDialog = Dialog(requireContext(), R.style.CustomDialog)

@@ -17,8 +17,10 @@ import com.idbs.weather.databinding.CitesFragmentBinding
 import com.idbs.weather.databinding.WeatherDetailsFragmentBinding
 import com.idbs.weather.ui.cites.CitesViewModel
 import com.idbs.weather.ui.cites.CitiesModel
+import com.idbs.weather.utilit.convertToCelsius
 import com.idbs.weather.utilit.getProcessDrawable
 import com.idbs.weather.utilit.loadImage
+import com.idbs.weather.utilit.showDate
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
@@ -108,25 +110,5 @@ class WeatherDetailsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-fun convertToCelsius(kelvinTemp:Double):String{
-    var convertResult = (kelvinTemp - 273.15)
-    val df = DecimalFormat("#")
-    df.roundingMode = RoundingMode.CEILING
-   convertResult =  df.format(convertResult).toDouble()
-    Log.v("temp","$kelvinTemp :  ${(kelvinTemp - 273.15)}")
-    return "$convertResult C"
-}
 
-fun showDate(dateLong:Long):String{
-    val dt = Instant.ofEpochSecond(dateLong)
-        .atZone(ZoneId.systemDefault())
-        .toLocalDateTime()
-
-    val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy - HH:mm")
-    val output = formatter.format(dt)
-
-    //   Log.d("parseTesting", date.month.toString()) // prints August
-    Log.v("time"," is: ${output}")
-    return output
-}
 }

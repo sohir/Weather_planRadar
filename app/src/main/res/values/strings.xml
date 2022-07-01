@@ -14,5 +14,8 @@
     <string name="humidity">Humidity</string>
     <string name="windspeed">Windspeed</string>
     <string name="weather_sub_title">Weather information for %s received on %s </string>
+    <string name="add">Add</string>
+    <string name="enter_city_name">Enter city name</string>
+    <string name="required_field">Required field</string>
 
 </resources>

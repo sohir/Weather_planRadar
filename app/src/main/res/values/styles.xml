@@ -32,4 +32,10 @@
         <item name="android:shadowColor">@android:color/white</item>
         <item name="fontFamily">@font/lato_regular</item>
     </style>
+    <style name="CustomDialog" parent="Theme.AppCompat.Dialog">
+        <!-- dialog width and screen ratio -->
+        <item name="android:windowMinWidthMinor">90%</item>
+        <!-- dialog background color, default is white -->
+        <item name="android:colorBackground">@color/transparent</item>
+    </style>
 </resources>

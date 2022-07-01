@@ -1,6 +1,7 @@
 package com.idbs.weather.ui.cites
 
 import android.app.Application
+import android.util.Log
 import com.idbs.weather.base.BaseViewModel
 import com.idbs.weather.base.NetworkState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,24 +17,33 @@ class CitesViewModel @Inject constructor(val application: Application, val repo:
     private val _citesLoadingState = MutableStateFlow<NetworkState?>(NetworkState())
     val citiesLoadingState: StateFlow<NetworkState?> = _citesLoadingState
 
-    private val _cityWeatherLoadingState = MutableStateFlow<NetworkState?>(NetworkState())
-    val cityWeatherLoadingState: StateFlow<NetworkState?> = _cityWeatherLoadingState
-init {
-    citiesRequest()
-    cityWeatherRequest("London")
-}
+    private val _insertCityLoadingState = MutableStateFlow<NetworkState?>(NetworkState())
+    val insertCityLoadingState: StateFlow<NetworkState?> = _insertCityLoadingState
+
+
+    init {
+        citiesRequest()
+    }
+
     fun insertCity(city:CitiesModel.Cities){
         viewModelScope.launch {
-            repo.insertCity(city)
+            try {
+                _insertCityLoadingState.emit(NetworkState.LOADING)
+                repo.insertCity(city)
+            }catch (throwable: Throwable) {
+                _insertCityLoadingState.value=(NetworkState.getErrorMessage(throwable))
+            }
+
         }
 
     }
-    private fun citiesRequest()
+     fun citiesRequest()
     {
         viewModelScope.launch {
             try {
                 _citesLoadingState.emit(NetworkState.LOADING)
                 repo.getCities().collect{
+                    Log.v("data"," vm: ${it}")
                     _citesLoadingState.emit(NetworkState.getLoaded(it))
                 }
             }
@@ -43,18 +53,4 @@ init {
         }
     }
 
-    private fun cityWeatherRequest(cityName:String)
-    {
-        viewModelScope.launch {
-            try {
-                _cityWeatherLoadingState.emit(NetworkState.LOADING)
-                repo.getCityWeather(cityName).collect{
-                    _cityWeatherLoadingState.emit(NetworkState.getLoaded(it))
-                }
-            }
-            catch (throwable: Throwable) {
-                _cityWeatherLoadingState.value=(NetworkState.getErrorMessage(throwable))
-            }
-        }
-    }
 }

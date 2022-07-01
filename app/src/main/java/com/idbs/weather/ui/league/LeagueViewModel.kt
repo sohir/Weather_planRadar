@@ -11,8 +11,7 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
-class LeagueViewModel @Inject constructor(
-    val application: Application,val repo: LeagueRepo) : BaseViewModel()  {
+class LeagueViewModel @Inject constructor(val application: Application,val repo: LeagueRepo) : BaseViewModel()  {
 
     val leagueList = repo.leagueList
 

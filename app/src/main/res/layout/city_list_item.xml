@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="city"
+            type="com.idbs.weather.ui.cites.CitiesModel.Cities" />
+
+        <variable
+            name="listener"
+            type="com.idbs.weather.ui.cites.CitesListAdapter.ComponentActionsClickListener"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/city_name"
+            style="@style/TextBaseStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:drawablePadding="32dp"
+            tools:text="London,UK"
+            android:text="@{city.name}"
+            android:onClick="@{v->listener.onItemClicked(v,city)}"
+            app:drawableStartCompat="@mipmap/ic_location"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/info_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:src="@mipmap/ic_info"
+            android:onClick="@{v->listener.onInfoClicked(v,city)}"/>
+    </LinearLayout>
+</layout>
+

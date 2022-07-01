@@ -7,4 +7,6 @@
     <string name="games_number">Available games</string>
     <string name="no_connection">No Connection</string>
     <string name="bad_connection">Bad Connection</string>
+    <string name="reload">Reload</string>
+    <string name="no_data_founded">No cities founded</string>
 </resources>

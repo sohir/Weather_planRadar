@@ -8,7 +8,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
 
-class NetworkState constructor(val status: Status, val msg: Any? = null, val data: Any? = null) {
+class NetworkState constructor(val status: Status?=null, val msg: String? = null, val data: Any? = null) {
 
     enum class Status {
         RUNNING, FAILED, SUCCESS

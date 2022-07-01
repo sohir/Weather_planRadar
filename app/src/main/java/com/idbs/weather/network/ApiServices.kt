@@ -8,7 +8,6 @@ import retrofit2.http.Path
 
 
 interface ApiServices {
-
     @GET("competitions")
     fun getLeagueList(): Deferred<LeagueResponsModel>
 

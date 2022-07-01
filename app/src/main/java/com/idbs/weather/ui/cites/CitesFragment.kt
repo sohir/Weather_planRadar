@@ -96,6 +96,9 @@ private fun observeCities(){
         Log.v("click"," info clicked")
         Toast.makeText(requireContext(),"id: ${item.id}",Toast.LENGTH_SHORT).show()
     }
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }

@@ -5,6 +5,7 @@ import com.idbs.weather.network.WeatherApiServices
 import com.idbs.weather.ui.cites.CitesRepo
 import com.idbs.weather.ui.league.LeagueRepo
 import com.idbs.weather.ui.teams.TeamRepo
+import com.idbs.weather.ui.weatherDetails.WeatherRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +31,10 @@ object RepoModule {
     @ActivityRetainedScoped
     fun provideCitiesListRepo(api:WeatherApiServices):CitesRepo{
         return CitesRepo(api)
+    }
+    @Provides
+    @ActivityRetainedScoped
+    fun provideWeatherDetailsRepo(api:WeatherApiServices):WeatherRepo{
+        return WeatherRepo(api)
     }
 }

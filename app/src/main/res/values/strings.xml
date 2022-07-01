@@ -13,4 +13,6 @@
     <string name="temperature">Temperature</string>
     <string name="humidity">Humidity</string>
     <string name="windspeed">Windspeed</string>
+    <string name="weather_sub_title">Weather information for %s received on %s </string>
+
 </resources>

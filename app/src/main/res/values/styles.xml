@@ -16,6 +16,14 @@
         <item name="android:shadowColor">@android:color/white</item>
         <item name="fontFamily">@font/lato_regular</item>
     </style>
+    <style name="TextSubTitleStyle">
+        <item name="android:textSize" tools:ignore="SpUsage">12sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item name="android:shadowRadius">16</item>
+        <item name="android:shadowColor">@android:color/white</item>
+        <item name="fontFamily">@font/lato_regular</item>
+    </style>
     <style name="TextBaseBlueStyle">
         <item name="android:textSize" tools:ignore="SpUsage">20sp</item>
         <item name="android:textColor">@color/blue_800</item>

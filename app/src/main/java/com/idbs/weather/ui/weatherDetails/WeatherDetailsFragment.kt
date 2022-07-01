@@ -17,6 +17,8 @@ import com.idbs.weather.databinding.CitesFragmentBinding
 import com.idbs.weather.databinding.WeatherDetailsFragmentBinding
 import com.idbs.weather.ui.cites.CitesViewModel
 import com.idbs.weather.ui.cites.CitiesModel
+import com.idbs.weather.utilit.getProcessDrawable
+import com.idbs.weather.utilit.loadImage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
@@ -77,6 +79,7 @@ class WeatherDetailsFragment : Fragment() {
                                     if (it.weather.isNotEmpty()){
                                         binding.descriptionValue.text = it.weather[0].description?: ""
                                     }
+                                    Log.v("img","is: ${it.weather[0].image}")
                                     binding.temperatureValue.text = convertToCelsius(it.main.temp) ?: ""
                                     val humidityPercentage = "${it.main.humidity}%"
                                     binding.humidityValue.text = humidityPercentage
@@ -84,6 +87,7 @@ class WeatherDetailsFragment : Fragment() {
                                     binding.cityName.text = it.name
                                     val subHeader = getString(R.string.weather_sub_title, it.name,showDate(it.dt.toLong()))
                                     binding.subHeader.text = subHeader
+                                    binding.weatherIcon.loadImage(it.weather[0].image, getProcessDrawable(binding.weatherIcon.context))
 
 
                                     // binding.error.visibility=View.VISIBLE

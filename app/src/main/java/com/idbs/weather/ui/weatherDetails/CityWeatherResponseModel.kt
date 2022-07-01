@@ -1,8 +1,10 @@
 package com.idbs.weather.ui.weatherDetails
 
 
+import com.idbs.weather.utilit.UrlsConstants.IMG_BASE_URL
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.android.parcel.Parcelize
 
 @JsonClass(generateAdapter = true)
 data class CityWeatherResponseModel(
@@ -83,6 +85,8 @@ data class CityWeatherResponseModel(
         var description: String = "",
         @Json(name = "icon")
         var icon: String = "",
+        @Transient
+        var image : String = "$IMG_BASE_URL$icon.png",
         @Json(name = "id")
         var id: Int = 0,
         @Json(name = "main")

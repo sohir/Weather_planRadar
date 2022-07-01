@@ -15,8 +15,12 @@ import javax.inject.Inject
 class CitesViewModel @Inject constructor(val application: Application, val repo: CitesRepo) : BaseViewModel() {
     private val _citesLoadingState = MutableStateFlow<NetworkState?>(NetworkState())
     val citiesLoadingState: StateFlow<NetworkState?> = _citesLoadingState
+
+    private val _cityWeatherLoadingState = MutableStateFlow<NetworkState?>(NetworkState())
+    val cityWeatherLoadingState: StateFlow<NetworkState?> = _cityWeatherLoadingState
 init {
     citiesRequest()
+    cityWeatherRequest("London")
 }
     private fun citiesRequest()
     {
@@ -28,7 +32,22 @@ init {
                 }
             }
             catch (throwable: Throwable) {
-            _networkState.value=(NetworkState.getErrorMessage(throwable))
+                _citesLoadingState.value=(NetworkState.getErrorMessage(throwable))
+            }
+        }
+    }
+
+    private fun cityWeatherRequest(cityName:String)
+    {
+        viewModelScope.launch {
+            try {
+                _cityWeatherLoadingState.emit(NetworkState.LOADING)
+                repo.getCityWeather(cityName).collect{
+                    _cityWeatherLoadingState.emit(NetworkState.getLoaded(it))
+                }
+            }
+            catch (throwable: Throwable) {
+                _cityWeatherLoadingState.value=(NetworkState.getErrorMessage(throwable))
             }
         }
     }

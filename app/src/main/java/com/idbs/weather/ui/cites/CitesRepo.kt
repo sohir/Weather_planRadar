@@ -1,6 +1,7 @@
 package com.idbs.weather.ui.cites
 
 import com.idbs.weather.network.WeatherApiServices
+import com.idbs.weather.ui.weather.CityWeatherResponseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -20,4 +21,13 @@ class CitesRepo @Inject constructor(val apiServices: WeatherApiServices){
         }.flowOn(Dispatchers.IO)
 
     }
+
+    suspend fun getCityWeather(_cityName:String): Flow<CityWeatherResponseModel> {
+        return flow {
+            val result= apiServices.cityWeather(cityName = _cityName).await()
+            emit(result)
+        }.flowOn(Dispatchers.IO)
+
+    }
+
 }

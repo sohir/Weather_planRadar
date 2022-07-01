@@ -1,7 +1,7 @@
 package com.idbs.weather.ui.cites
 
 import com.idbs.weather.network.WeatherApiServices
-import com.idbs.weather.ui.weather.CityWeatherResponseModel
+import com.idbs.weather.ui.weatherDetails.CityWeatherResponseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

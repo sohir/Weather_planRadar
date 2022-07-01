@@ -9,4 +9,8 @@
     <string name="bad_connection">Bad Connection</string>
     <string name="reload">Reload</string>
     <string name="no_data_founded">No cities founded</string>
+    <string name="description">Description</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="windspeed">Windspeed</string>
 </resources>

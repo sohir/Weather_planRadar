@@ -42,5 +42,18 @@
         android:id="@+id/citesFragment"
         android:name="com.idbs.weather.ui.cites.CitesFragment"
         android:label="cites_fragment"
-        tools:layout="@layout/cites_fragment" />
+        tools:layout="@layout/cites_fragment" >
+        <action
+            android:id="@+id/action_citesFragment_to_weatherDetailsFragment"
+            app:destination="@id/weatherDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherDetailsFragment"
+        android:name="com.idbs.weather.ui.weatherDetails.WeatherDetailsFragment"
+        android:label="weather_details_fragment"
+        tools:layout="@layout/weather_details_fragment" >
+        <argument
+            android:name="cityName"
+            app:argType="string" />
+    </fragment>
 </navigation>

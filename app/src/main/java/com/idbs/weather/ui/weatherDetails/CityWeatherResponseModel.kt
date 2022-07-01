@@ -1,4 +1,4 @@
-package com.idbs.weather.ui.weather
+package com.idbs.weather.ui.weatherDetails
 
 
 import com.squareup.moshi.Json

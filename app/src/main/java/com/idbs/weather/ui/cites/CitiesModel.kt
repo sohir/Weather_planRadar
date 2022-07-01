@@ -7,5 +7,5 @@ data class CitiesModel(
     val cities: List<Cities> = listOf()
     ): Parcelable{
     @Parcelize
-    data class Cities(var id:Int = 0,var name: String? = ""):Parcelable
+    data class Cities(var id:Int = 0,var name: String = ""):Parcelable
     }

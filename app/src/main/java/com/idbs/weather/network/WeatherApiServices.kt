@@ -1,6 +1,6 @@
 package com.idbs.weather.network
 
-import com.idbs.weather.ui.weather.CityWeatherResponseModel
+import com.idbs.weather.ui.weatherDetails.CityWeatherResponseModel
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query

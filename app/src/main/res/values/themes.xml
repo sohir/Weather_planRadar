@@ -1,14 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Football" parent="Theme.MaterialComponents.Light">
+    <style name="Theme.Weather" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
-
 
         <item name="colorPrimary">@color/blue_700</item>
         <item name="colorPrimaryVariant">@color/blue_900</item>
         <item name="colorOnPrimary">@color/blue_100</item>
-
-
 
         <item name="colorSecondary">@color/blue_400</item>
         <item name="colorSecondaryVariant">@color/blue_700</item>
@@ -17,6 +14,14 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="android:titleTextColor" tools:targetApi="l">?attr/colorOnPrimary</item>
 
+        <item name="android:textColorPrimary">@color/white</item>
+
         <!-- Customize your theme here. -->
+    <!--    <item name="actionBarTheme">@style/AppTheme.AppBarOverlay</item>
+
+        <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+            <item name="android:textColorPrimary">@color/blue_800</item>
+        </style>
+-->
     </style>
 </resources>

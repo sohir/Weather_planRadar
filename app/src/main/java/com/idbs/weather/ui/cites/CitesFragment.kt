@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idbs.weather.R
 import com.idbs.weather.base.NetworkState
@@ -86,6 +88,7 @@ private fun observeCities(){
     override fun onItemClicked(v: View, item: CitiesModel.Cities) {
         Toast.makeText(requireContext(),item.name,Toast.LENGTH_SHORT).show()
         Log.v("click"," item clicked ${item}")
+        findNavController().navigate(CitesFragmentDirections.actionCitesFragmentToWeatherDetailsFragment(item.name))
 
     }
 

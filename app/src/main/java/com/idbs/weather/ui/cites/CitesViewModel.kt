@@ -22,6 +22,12 @@ init {
     citiesRequest()
     cityWeatherRequest("London")
 }
+    fun insertCity(city:CitiesModel.Cities){
+        viewModelScope.launch {
+            repo.insertCity(city)
+        }
+
+    }
     private fun citiesRequest()
     {
         viewModelScope.launch {

@@ -1,11 +1,15 @@
 package com.idbs.weather.ui.cites
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class CitiesModel(
     val cities: List<Cities> = listOf()
-    ): Parcelable{
-    @Parcelize
-    data class Cities(var id:Int = 0,var name: String = ""):Parcelable
+    ){
+    @Entity(tableName = "city")
+    data class Cities(
+        @PrimaryKey(autoGenerate = true)
+        var id:Int = 0,
+        var name: String = "")
     }

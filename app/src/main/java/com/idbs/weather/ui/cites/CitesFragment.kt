@@ -41,6 +41,14 @@ class CitesFragment : Fragment() , CitesListAdapter.ComponentActionsClickListene
             layoutManager = LinearLayoutManager(context)
             adapter = mAdapter
         }
+        binding.fab.setOnClickListener {
+            var count = 1
+            viewModel.insertCity(CitiesModel.Cities(name = "London, UK ${count++}"))
+            val list: ArrayList<CitiesModel.Cities> = ArrayList()
+            list.add(CitiesModel.Cities(1,"London, UK"))
+            list.add(CitiesModel.Cities(2,"Paris, FR"))
+            list.add(CitiesModel.Cities(3,"Vienne,AUT"))
+        }
         observeCities()
         return binding.root
     }
